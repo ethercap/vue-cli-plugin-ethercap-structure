@@ -1,0 +1,11 @@
+{
+  "name": "vue-cli-plugin-ethercap-structure",
+  "version": "0.0.1",
+  "description": "vue-cli add ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
