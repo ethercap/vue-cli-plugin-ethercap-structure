@@ -1,0 +1,45 @@
+.cf(){
+    &:before, &:after{
+        content: "\200B";
+        display: block;
+        height: 0;
+        clear: both;
+    }
+}
+
+// 文字省略
+.overflow-ellipsis(@line) when(@line = 1) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.overflow-ellipsis(@line) when(@line > 1) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: @line;
+}
+
+// 多行文本内容
+.multi-line(@fontsize, @line-height) {
+    margin: -(@line-height - 1) * @fontsize / 2 0;
+    font-size: @fontsize;
+    line-height: @line-height;
+    word-break: break-all;
+}
+
+// 修改body背景色
+.body-bg(@bg) {
+    &::before {
+        content: '';
+        display: block;
+        position: fixed;
+        z-index: -1;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: @bg;
+    }
+}

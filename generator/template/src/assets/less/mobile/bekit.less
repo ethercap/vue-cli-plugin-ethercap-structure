@@ -1,0 +1,82 @@
+@import (reference) "./base.less";
+
+// bekit 中的功能是无 UI 的，需要手写样式
+.b-toast {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 2;
+    bottom: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity .2s ease-in;
+    width: 400/@base;
+    padding: 20/@base;
+    border-radius: @border-radius;
+    text-align: center;
+    color: @color-white;
+    line-height: @line-height;
+    &.active {
+        opacity: 1;
+    }
+    .bicon {
+        display: none;
+    }
+    &-info {
+        background-color: fade(@color-mask, 35%);
+    }
+}
+
+.b-confirm-mask {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: @color-mask;
+}
+.b-confirm {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    border-radius: @border-radius-lg;
+    width: 600/@base;
+    padding-top: 60/@base;
+    text-align: center;
+    line-height: 1;
+    background-color: @color-white;
+    &-title {
+        margin-bottom: 20/@base;
+        padding: 0 40/@base;
+        font-size: @fontsize-lger;
+        color: @color-text-title;
+    }
+    &-message {
+        display: inline-block;
+        padding: 0 40/@base;
+        text-align: left;
+        line-height: 1.5;
+        margin: -6/@base 0;
+    }
+    &-input-container {
+        margin-top: 20/@base;
+    }
+    &-footer {
+        display: flex;
+        margin-top: 40/@base;
+        border-top: @border-base;
+        .b-btn {
+            flex: 1;
+            padding: 30/@base;
+        }
+        .b-btn-confirm {
+            border-left: @border-base;
+            color: @color-primary;
+        }
+    }
+}

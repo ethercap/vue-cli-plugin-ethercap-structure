@@ -1,11 +1,16 @@
 {
   "name": "vue-cli-plugin-ethercap-structure",
   "version": "0.0.1",
-  "description": "vue-cli add ",
+  "description": "vue-cli 3 plugin to add ethercap-structure",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ethercap/vue-cli-plugin-ethercap-structure.git"
   },
-  "author": "",
+  "author": "luziming",
+  "bugs": {
+    "url": "https://github.com/ethercap/vue-cli-plugin-ethercap-structure/issues"
+  },
+  "homepage": "https://github.com/ethercap/vue-cli-plugin-ethercap-structure#readme",
   "license": "ISC"
 }

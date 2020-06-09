@@ -1,0 +1,80 @@
+@import (reference) "./base.less";
+@import (reference) "./common.less";
+
+// bekit中的功能是无UI的，需要手写样式
+.b-toast {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 2;
+    bottom: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity .2s ease-in;
+    width: 400px;
+    padding: 20px;
+    border-radius: @border-radius;
+    text-align: center;
+    color: @color-white;
+    line-height: @line-height;
+    &.active {
+        opacity: 1;
+    }
+    .bicon {
+        display: none;
+    }
+    &-info {
+        background-color: fade(@color-base, 60%);
+    }
+}
+
+.b-confirm-mask {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: @color-mask;
+}
+.b-confirm {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    border-radius: @border-radius-lg;
+    width: 500px;
+    padding: 60px 40px;
+    text-align: center;
+    line-height: 1;
+    background-color: @color-white;
+    &-title {
+        margin-bottom: 20px;
+        font-size: @fontsize-lger;
+        color: @color-text-title;
+    }
+    &-message {
+        display: inline-block;
+        text-align: left;
+        line-height: 1.5;
+        margin: -6px 0;
+    }
+    &-input-container {
+        margin-top: 20px;
+    }
+    &-footer {
+        margin-top: 40px;
+        .b-btn {
+            .btn;
+            &.b-btn-confirm {
+                .btn.btn-primary;
+            }
+        }
+        .b-btn + .b-btn {
+            margin-left: 20px;
+        }
+    }
+}

@@ -1,0 +1,89 @@
+@import (reference) "./base.less";
+
+/* input */
+.l-input-wrapper {
+    position: relative;
+    border: 0;
+    .l-input {
+        box-sizing: border-box;
+        border: 0;
+        width: 100%;
+        height: 32px;
+        line-height: $height;
+        padding: 0 12px;
+        font-size: @fontsize-lg;
+        background-color: @color-bg-input;
+        // 解决chrome下自动填充表单引起的背景颜色变化问题
+        box-shadow: 0 0 0px 1000px @color-bg-input inset;
+        outline: 0;
+        cursor: pointer;
+        &-number {
+            display: none;
+        }
+    }
+    &.l-textarea-wrapper {
+        overflow-y: scroll;
+        .l-input {
+            height: auto;
+            padding: 20px;
+            line-height: @line-height;
+            vertical-align: bottom;
+        }
+        .l-input-number {
+            display: block;
+            position: absolute;
+            bottom: .2em;
+            right: .2em;
+            line-height: 1;
+            font-size: @fontsize-sm;
+            color: @color-text-tip;
+        }
+    }
+}
+::-webkit-input-placeholder {
+    color: @color-text-tip;
+    line-height: normal;
+}
+
+/* form-item */
+.l-form-item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-bottom: 20px;
+}
+.l-form-label {
+    flex: 0 0 auto;
+    display: block;
+    margin: 0 20px 0 0;
+    width: 100px;
+    font-size: @fontsize-lg;
+}
+.l-form-label-text {
+    .l-form-item.is-required &::after {
+        content: "*";
+        margin-left: 8px;
+        font-size: @fontsize-sm;
+        color: @color-danger;
+    }
+    .label-quote {
+        display: none;
+    }
+}
+.l-form-hint {
+    color: @color-text-tip;
+    font-size: @fontsize-sm;
+}
+.l-form-item-content {
+    .cf();
+    flex: 1 1 0%;
+    position: relative;
+    line-height: 1.5;
+}
+.l-form-item-error {
+    position: absolute;
+    line-height: 1;
+    font-size: @fontsize-sm;
+    color: @color-danger;
+    transform: translateY(3px);
+}

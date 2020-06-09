@@ -1,0 +1,96 @@
+@import (reference) "./base.less";
+@import "./ledap.less";
+@import "./bekit.less";
+@import "./loading.less";
+
+html {
+    height: 100%;
+}
+body {
+    min-height: 100%;
+    min-width: @page-width;
+    position: relative;
+    color: @color-text;
+    box-sizing: border-box;
+    background-color: @color-bg;
+}
+body,
+button,
+input,
+textarea {
+    font-family: "PingFang SC","Lantinghei SC","Helvetica Neue","Helvetica","Arial","Microsoft YaHei","\\5FAE\8F6F\96C5\9ED1","STHeitiSC-Light","simsun","\\5B8B\4F53,WenQuanYi Zen Hei","WenQuanYi Micro Hei","sans-serif";
+    font-size: @fontsize-base;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+}
+a {
+    color: @color-text;
+    &:hover {
+        color: @color-primary;
+    }
+}
+
+// button
+.btn {
+    border: 1px solid @color-white;
+    border-radius: 4px;
+    padding: 10px 40px;
+    font-size: @fontsize-base;
+    color: @color-text-title;
+    background-color: @color-white;
+    box-shadow: @box-shadow;
+    cursor: pointer;
+    &:hover {
+        border-color: @color-primary;
+        background-color: @color-primary;
+    }
+    &.is-round {
+        border-radius: 18px;
+    }
+
+    &.btn-primary {
+        border-color: @color-primary;
+        background-color: @color-primary;
+        &:hover {
+            border-color: #ffe079;
+            color: @color-text-title;
+            background-color: #ffe079;
+        }
+    }
+
+    &.btn-lg {
+        padding: 13px 60px;
+        font-size: 24px;
+        &.is-round {
+            border-radius: 26px;
+        }
+    }
+}
+
+// text
+.text-title {
+    color: @color-text-title;
+    font-weight: bold;
+}
+.text-tip {
+    color: @color-text-tip;
+}
+.text-danger {
+    color: @color-danger;
+}
+.text-success {
+    color: @color-success;
+}
+.text-center {
+    text-align: center;
+}
+.text-num {
+    display: inline-block;
+    margin: 0 .3em;
+}
+.p-base {
+    .multi-line(@fontsize-base, @line-height);
+}
+.p-sm {
+    .multi-line(@fontsize-sm, @line-height);
+}

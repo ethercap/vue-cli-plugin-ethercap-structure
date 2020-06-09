@@ -1,0 +1,89 @@
+@import (reference) "./base.less";
+
+/* input */
+.l-input-wrapper {
+    position: relative;
+    border: 0;
+    font-size: 0;
+    .l-input {
+        box-sizing: border-box;
+        border: 0;
+        width: 100%;
+        height: 92/@base;
+        line-height: @fontsize-base;
+        padding: 32/@base 0;
+        color: @color-text;
+        font-size: @fontsize-base;
+        background-color: @color-bg-input;
+        // 解决chrome下自动填充表单引起的背景颜色变化问题
+        box-shadow: 0 0 0/@base 1000/@base @color-bg-input inset;
+        outline: 0;
+        &-number {
+            display: none;
+        }
+    }
+    &.l-textarea-wrapper {
+        overflow-y: scroll;
+        .l-input {
+            height: auto;
+            padding: 20/@base;
+            line-height: @line-height;
+            vertical-align: bottom;
+        }
+        .l-input-number {
+            display: block;
+            position: absolute;
+            bottom: .2em;
+            right: .2em;
+            line-height: 1;
+            font-size: @fontsize-sm;
+            color: @color-text-tip;
+        }
+    }
+}
+::-webkit-input-placeholder {
+    color: @color-text-tip;
+    line-height: normal;
+}
+
+/* form-item */
+.l-form-item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-bottom: @border-base;
+}
+.l-form-label {
+    flex: 0 0 auto;
+    display: block;
+    margin: 0 20/@base 0 0;
+    padding: 32/@base 0;
+    width: auto;
+    font-size: @fontsize-base;
+}
+.l-form-label-text {
+    .l-form-item.is-required &::after {
+        content: "*";
+        margin-left: 4/@base;
+        font-size: @fontsize-sm;
+        color: @color-danger;
+    }
+}
+.l-form-hint {
+    color: @color-text-tip;
+    font-size: @fontsize-base;
+}
+.l-form-item-content {
+    .cf();
+    flex: 1 1 0%;
+    position: relative;
+    line-height: 1.5;
+}
+.l-form-item-error {
+    position: absolute;
+    left: 0;
+    bottom: 2/@base;
+    line-height: 1;
+    font-size: @fontsize-sm;
+    color: @color-danger;
+}

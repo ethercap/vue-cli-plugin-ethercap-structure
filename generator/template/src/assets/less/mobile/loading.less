@@ -1,0 +1,73 @@
+@import (reference) "./base.less";
+
+@keyframes pageLoadingRotate {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(180deg) scale(0.6);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+.rotate-loading(@size, @top: 0, @color: @color-border, @stroke: ceil(@size / 20)) {
+    &::before, &::after {
+        content: "\200B";
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        border: @stroke/@base solid;
+        box-sizing: border-box;
+        border-radius: 100%;
+        animation: pageLoadingRotate 1.2s 0s ease-in-out infinite;
+    }
+    &::before {
+        @beforeSize: @size;
+        width: @beforeSize/@base;
+        height: @beforeSize/@base;
+        top: @top/@base;
+        border-color: transparent @color;
+    }
+    &::after {
+        @afterSize: ceil(@size / 2 - @stroke / 3 * 2);
+        width: @afterSize/@base;
+        height: @afterSize/@base;
+        top: (@top + ceil((@size - @afterSize) / 2))/@base;
+        animation-duration: 0.6s;
+        border-color: @color transparent;
+        animation-direction: reverse;
+    }
+}
+
+.loading-frame() {
+    width: 240/@base;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 190/@base 20/@base 30/@base;
+    font-size: 28/@base;
+    text-align: center;
+    color: @color-white;
+    background-color: rgba(0,0,0,.5);
+}
+
+.page-loading-container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+}
+.page-loading {
+    .loading-frame;
+    .rotate-loading(120, 40, @color-white);
+    position: absolute;
+    height: 48/@base;
+    border-radius: 16/@base;
+}

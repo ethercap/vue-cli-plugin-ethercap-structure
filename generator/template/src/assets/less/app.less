@@ -1,0 +1,87 @@
+/*
+* desktop 和 mobile 共用的样式
+* 所有涉及到变量的公共样式都应写在 desktop/common 或者 mobiel/common 下，因为变量可能会不同
+*/
+@import "./reset.less";
+
+/* iconfont */
+.yicon {
+    font-size: 1em;
+    font-weight: normal;
+}
+/* base */
+.flex {
+    display: flex;
+    align-items: stretch;
+
+    &-vertical {
+        flex-direction: column;
+    }
+
+    &-start {
+        align-items: flex-start;
+    }
+
+    &-middle {
+        align-items: center;
+    }
+
+    &-end {
+        align-items: flex-end;
+    }
+
+    &-justify {
+        justify-content: space-between;
+    }
+
+    &-around {
+        justify-content: space-around;
+    }
+
+    &-center {
+        justify-content: center;
+    }
+}
+
+.flex-item {
+    flex: 0 0 auto;
+
+    &-auto {
+        flex: auto;
+    }
+
+    &-1 {
+        flex: 1;
+    }
+
+    &-2 {
+        flex: 2;
+    }
+
+    &-3 {
+        flex: 3;
+    }
+
+    &-4 {
+        flex: 4;
+    }
+}
+// position
+.rel {
+    position: relative;
+}
+.abs {
+    position: absolute;
+}
+.abs-center {
+    left: 50%;
+    margin-right: -50%;
+    transform: translateX(-50%);
+    &.abs-middle {
+        transform: translate(-50%, -50%);
+    }
+}
+.abs-middle {
+    top: 50%;
+    transform: translateY(-50%);
+}
