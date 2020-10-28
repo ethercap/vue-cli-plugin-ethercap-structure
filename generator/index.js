@@ -9,8 +9,8 @@ module.exports = (api, options, rootOptions) => {
 
     api.extendPackage({
         devDependencies: {
-            'ledap': "^0.1.7",
-            'bekit': "0.0.7",
+            'ledap': "^0.1.9",
+            'bekit': "0.1.1",
             'axios': "^0.19.2",
             'crypto-js': "^4.0.0"
         }

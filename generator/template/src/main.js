@@ -6,7 +6,10 @@ import router from './router';
 import '@/assets/js/init-ledap.js';
 // 引入bekit
 import * as bekit from 'bekit';
-Vue.use(bekit.plugin.vueNotice);
+// TODO: 替换成业务想也的 icon 类名
+Vue.use(bekit.plugin.vueNotice, {
+    toast: { iconClass: 'yicon' }
+});
 // 初始化localstorage
 import lsPlugin from '@/assets/js/ls.js';
 Vue.use(lsPlugin);
