@@ -64,7 +64,30 @@
         margin: -6/@base 0;
     }
     &-input-container {
+        position: relative;
         margin-top: 20/@base;
+    }
+    &-input {
+        box-sizing: border-box;
+        border: @border-base;
+        border-color: #dcdfe6;
+        width: 80%;
+        height: 66/@base;
+        line-height: @fontsize-base;
+        padding: 16/@base 0 16/@base 16/@base;
+        color: @color-text;
+        font-size: @fontsize-base;
+        background-color: @color-bg-input;
+        // 解决chrome下自动填充表单引起的背景颜色变化问题
+        box-shadow: 0 0 0/@base 1000/@base @color-bg-input inset;
+        outline: 0;
+        &-error {
+            position: absolute;
+            top: 74/@base;
+            left: 10%;
+            font-size: @fontsize-sm;
+            color: @color-danger;
+        }
     }
     &-footer {
         display: flex;
