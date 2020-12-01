@@ -9,10 +9,6 @@ const { Ua } = bekit.helper;
 Vue.use(VueRouter);
 
 const commonRoutes = [{
-    path: '/',
-    name: 'Index',
-    component: Index
-}, {
     path: '/login',
     name: 'Login',
     component: () => import( /* webpackChunkName: "login" */ '../views/login.vue'),
@@ -31,16 +27,22 @@ const commonRoutes = [{
 }];
 const platformRoutes = {
     desktop: {
-        path: '/desktop',
-        name: 'DesktopLayout',
+        path: '/',
         component: () => import( /* webpackChunkName: "desktop-layout" */ '../layouts/desktop.vue'),
-        children: []
+        children: [{
+            path: '/',
+            name: 'DesktopIndex',
+            component: Index
+        }]
     },
     mobile: {
-        path: '/mobile',
-        name: 'MobileLayout',
+        path: '/',
         component: () => import( /* webpackChunkName: "mobile-layout" */ '../layouts/mobile.vue'),
-        children: []
+        children: [{
+            path: '/',
+            name: 'MobileIndex',
+            component: () => import( /* webpackChunkName: "mobile-index" */ '../views/mobile/Index.vue')
+        }]
     }
 };
 // 为防止 pc、mobile 有相同的路由，先注册的路由生效，后注册路由无效
